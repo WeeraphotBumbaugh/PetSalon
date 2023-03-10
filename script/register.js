@@ -54,7 +54,7 @@ function init() {
     "Vaccines",
     "222-222-2222"
   );
-  petSalon.pets.push(pet1, pet2);
+  petSalon.pets.push(pet1, pet2, pet3);
 }
 window.onload = init;
 
