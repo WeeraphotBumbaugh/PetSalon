@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/337be747ec.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/register.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="container">
+      <form id="petRegistration">
+        <input type="text" id="petName" placeholder="Pet Name" />
+        <input type="text" id="petAge" placeholder="Age" />
+        <input type="text" id="petBreed" placeholder="Breed" />
+        <br />
+        <input type="radio" id="Dog" name="petType" value="dog" />
+        <label for="html">Dog</label>
+        <input type="radio" id="Cat" name="petType" value="cat" />
+        <label for="css">Cat</label>
+        <br />
+        <input type="radio" id="Male" name="petGender" value="male" />
+        <label for="html">Male</label>
+        <input type="radio" id="Female" name="petGender" value="female" />
+        <label for="css">Female</label>
+        <br />
+        <label for="petService">Choose a Service:</label>
+        <select name="petService" id="petService">
+          <option value="Nail Trimming">Nail Trimming</option>
+          <option value="Full Body Wash">Full Body Wash</option>
+          <option value="Vaccine">Vaccines</option>
+        </select>
+        <br />
+        <h3>Contact Information</h3>
+        <input type="text" id="ownerName" placeholder="Owner Name" />
+        <input
+          type="tel"
+          id="ownerPhone"
+          placeholder="Phone Number"
+          pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+        />
+        <input type="date" />
+        <button onclick="register();" type="button">Submit</button>
+      </form>
+    </div>
+    <footer>
+      <button onclick="displayFooterInfo();">Display Info</button>
+      <div id="information"></div>
+    </footer>
+    <script src="script/register.js"></script>
+    <script src="script/displayInfo.js"></script>
+  </body>
+</html>
