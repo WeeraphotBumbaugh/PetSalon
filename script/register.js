@@ -1,3 +1,5 @@
+let petId = 0;
+
 function Pet(owner, name, age, gender, type, breed, service, phone) {
   this.owner = owner;
   this.name = name;
@@ -7,6 +9,7 @@ function Pet(owner, name, age, gender, type, breed, service, phone) {
   this.breed = breed;
   this.service = service;
   this.phone = phone;
+  this.id = petId++;
 }
 
 let petSalon = {
@@ -27,7 +30,7 @@ function init() {
   let pet1 = new Pet(
     "Shaggy",
     "Scooby-Doo",
-    2,
+    "2",
     "Male",
     "Dog",
     "German Shepherd",
@@ -37,7 +40,7 @@ function init() {
   let pet2 = new Pet(
     "Will",
     "Nita",
-    14,
+    "14",
     "Female",
     "Dog",
     "Lab",
@@ -47,7 +50,7 @@ function init() {
   let pet3 = new Pet(
     "Billy",
     "Titan",
-    6,
+    "6",
     "Female",
     "Cat",
     "Bengal",
@@ -55,15 +58,10 @@ function init() {
     "222-222-2222"
   );
   petSalon.pets.push(pet1, pet2, pet3);
+  updateInfo();
+  displayPetTable();
 }
 window.onload = init;
-
-function displayPetInfo() {
-  alert(petSalon.pets.length + " pets are in the Salon.");
-  for (let i = 0; i < petSalon.pets.length; i++) {
-    console.log(petSalon.pets[i].name);
-  }
-}
 
 let owner = document.getElementById("ownerName");
 let pet = document.getElementById("petName");
@@ -74,6 +72,29 @@ let breed = document.getElementById("petBreed");
 let service = document.getElementById("petService");
 let phone = document.getElementById("ownerPhone");
 
+function isValid(aPet) {
+  let valid = true;
+  // if (aPet.owner === "") {
+  //   valid = false;
+  // }
+  if (aPet.name === "") {
+    valid = false;
+  }
+  // if (aPet.age === "") {
+  //   valid = false;
+  // }
+  // if (aPet.type === "") {
+  //   valid = false;
+  // }
+  // if (aPet.service === "") {
+  //   valid = false;
+  // }
+  // if (aPet.phone === "") {
+  //   valid = false;
+  // }
+  return valid;
+}
+
 function register() {
   for (let i = 0; i < gender.length; i++) {
     if (gender[i].checked) gender.value = gender[i].value;
@@ -82,34 +103,40 @@ function register() {
     if (type[i].checked) type.value = type[i].value;
   }
   let newPet = new Pet(
+    owner.value,
     pet.value,
-    Number(age.value),
+    age.value,
     gender.value,
     type.value,
     breed.value,
-    service.value
+    service.value,
+    phone.value
   );
-  petSalon.pets.push(newPet);
-  console.log(petSalon.pets);
-  console.log(
-    "Succesfully registered a " +
-      age.value +
-      " year old " +
-      gender.value +
-      " " +
-      breed.value +
-      " " +
-      type.value +
-      " named " +
-      pet.value +
-      " for service: " +
-      service.value
-  );
-  console.log(
-    "Owner's contact information: " + owner.value + " " + phone.value
-  );
-  clearForm();
+  if (isValid(newPet) === true) {
+    petSalon.pets.push(newPet);
+    console.log(petSalon.pets);
+    updateInfo();
+    displayPetTable();
+    clearForm();
+  }
 }
+
+function updateInfo() {
+  document.getElementById("numberOfPets").innerHTML = petSalon.pets.length;
+}
+
 function clearForm() {
   document.getElementById("petRegistration").reset();
+}
+function deletePet(id) {
+  let petIndex;
+  for (let i = 0; i < petSalon.pets.length; i++) {
+    let pet = petSalon.pets[i];
+    if (pet.id == id) {
+      petIndex = i;
+    }
+  }
+  petSalon.pets.splice(petIndex, 1);
+  document.getElementById(id).remove();
+  updateInfo();
 }
