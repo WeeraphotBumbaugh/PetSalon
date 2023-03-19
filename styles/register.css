@@ -6,9 +6,31 @@
 }
 body {
   background-color: beige;
-  font-family: "lato", sans-serif;
 }
-
+/*NAV*/
+header {
+  height: 6vh;
+  background-color: gray;
+  text-align: center;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  align-items: center;
+  color: black;
+  font-size: 26px;
+}
+.logo-list {
+  display: flex;
+  justify-content: space-around;
+}
+main {
+  margin-top: 55px;
+}
 form {
   margin-left: auto;
   margin-right: auto;

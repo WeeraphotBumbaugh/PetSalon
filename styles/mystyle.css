@@ -8,6 +8,11 @@ body {
   background-color: beige;
 }
 /*NAV*/
+header {
+  height: 6vh;
+  background-color: gray;
+  text-align: center;
+}
 .navigation {
   display: flex;
   justify-content: space-between;
@@ -19,7 +24,7 @@ body {
   color: black;
   font-size: 26px;
 }
-.index-pet {
-  height: 60px;
-  width: 80px;
+.logo-list {
+  display: flex;
+  justify-content: space-around;
 }
