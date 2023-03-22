@@ -10,7 +10,6 @@ body {
 /*NAV*/
 header {
   height: 6vh;
-  background-color: gray;
   text-align: center;
 }
 .navigation {
@@ -19,7 +18,6 @@ header {
   height: 70px;
   padding-left: 30px;
   padding-right: 30px;
-  padding-top: 10px;
   align-items: center;
   color: black;
   font-size: 26px;
@@ -28,8 +26,35 @@ header {
   display: flex;
   justify-content: space-around;
 }
+
+/*NOTIFICATIONS*/
+#notifications {
+  width: 30%;
+  border-radius: 5px;
+  padding: 3px;
+  margin-bottom: 10px;
+  height: 30px;
+  font-size: 14px;
+  margin: 10px auto;
+  text-align: center;
+}
+.hide {
+  display: none;
+}
+.success {
+  background-color: green;
+  color: dark green;
+}
+.error {
+  background-color: pink;
+  border: 1px solid gray;
+}
+/*MAIN*/
 main {
-  margin-top: 55px;
+  margin-top: 65px;
+}
+body {
+  text-align: center;
 }
 form {
   margin-left: auto;
@@ -37,41 +62,32 @@ form {
   padding: 2em;
   border: dotted 1px black;
   border-radius: 2em;
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   max-width: 675px;
+  height: 460px;
 }
 .form-item {
-  display: block;
   justify-content: space-around;
   font-size: 23px;
-  background-color: transparent;
 }
 .box-item {
   height: 30px;
-  margin-bottom: 15px;
 }
 input {
   padding: 0.5em;
   width: 15em;
 }
-input[type="radio"] {
-  margin-left: 1.5em;
-  margin-right: 0;
+.radiobuttons {
+  margin-top: 90px;
 }
-input[type="radio"] + label {
-  display: inline-block;
-  padding-top: 0;
-  margin-top: 0;
-}
-input[type="radio"]:first-of-type {
-  margin-left: 0;
+button {
+  margin-top: 100px;
 }
 .container {
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 150px;
+  margin-right: 100px;
   padding-left: 10px;
   padding-right: 10px;
 }

@@ -74,27 +74,45 @@ let phone = document.getElementById("ownerPhone");
 
 function isValid(aPet) {
   let valid = true;
-  // if (aPet.owner === "") {
-  //   valid = false;
-  // }
+
+  $("#petName").removeClass("error");
+  $("#petAge").removeClass("error");
+  $("#petBreed").removeClass("error");
+  $("#petService").removeClass("error");
+  $("#petPhone").removeClass("error");
+  $("#petOwner").removeClass("error");
+
+  if (aPet.owner === "") {
+    valid = false;
+    displayNotification("Please fill out the required fields.", "error");
+  }
   if (aPet.name === "") {
     valid = false;
+    displayNotification("Please fill out the required fields.", "error");
   }
-  // if (aPet.age === "") {
-  //   valid = false;
-  // }
-  // if (aPet.type === "") {
-  //   valid = false;
-  // }
-  // if (aPet.service === "") {
-  //   valid = false;
-  // }
-  // if (aPet.phone === "") {
-  //   valid = false;
-  // }
+  if (aPet.age === "") {
+    valid = false;
+    displayNotification("Please fill out the required fields.", "error");
+  }
+  if (aPet.service === "") {
+    valid = false;
+    displayNotification("Please fill out the required fields.", "error");
+  }
+  if (aPet.phone === "") {
+    valid = false;
+    displayNotification("Please fill out the required fields.", "error");
+  }
   return valid;
 }
-
+function displayNotification(msg, notificationType) {
+  let DIV = $("#notifications");
+  DIV.removeClass("hide error success");
+  DIV.addClass(notificationType).text(msg);
+}
+function hideNotification() {
+  let DIV = $("#notifications");
+  DIV.addClass("hide");
+}
 function register() {
   for (let i = 0; i < gender.length; i++) {
     if (gender[i].checked) gender.value = gender[i].value;
@@ -112,9 +130,12 @@ function register() {
     service.value,
     phone.value
   );
-  if (isValid(newPet) === true) {
+  if (isValid(newPet)) {
+    displayNotification("Successful registration", "success");
+    setTimeout(function () {
+      hideNotification();
+    }, 2000);
     petSalon.pets.push(newPet);
-    console.log(petSalon.pets);
     updateInfo();
     displayPetTable();
     clearForm();
