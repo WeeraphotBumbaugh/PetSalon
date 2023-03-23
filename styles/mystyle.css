@@ -34,6 +34,15 @@ header {
   width: 80%;
   height: 700px;
 }
+.about-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 400px;
+}
+.img {
+  margin: 0 20px;
+}
 img {
   height: 100%;
   width: 100%;
@@ -51,4 +60,18 @@ img {
   right: 16px;
   font-size: 40px;
   font-weight: 800;
+}
+.services-words {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.services-words p {
+  margin: 0 20px;
+  font-size: 50px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 3px black;
 }
